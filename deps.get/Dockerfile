@@ -1,4 +1,4 @@
-FROM elixir
+FROM elixir:1.8.1-alpine
 
 LABEL "repository"="https://github.com/jclem/action-mix"
 LABEL "homepage"="https://github.com/jclem/action-mix"
@@ -8,6 +8,10 @@ LABEL "com.github.actions.name"="Run `mix deps.get`"
 LABEL "com.github.actions.description"="An action for running `mix deps.get`"
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="orange"
+
+RUN apk add --no-cache \
+  bash \
+  git
 
 ARG MIX_HOME=/.mix
 ENV MIX_HOME=$MIX_HOME

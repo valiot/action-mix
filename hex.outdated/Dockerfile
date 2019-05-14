@@ -4,14 +4,18 @@ LABEL "repository"="https://github.com/jclem/action-mix"
 LABEL "homepage"="https://github.com/jclem/action-mix"
 LABEL "maintainer"="Jonathan Clem <jonathan@jclem.net>"
 
-LABEL "com.github.actions.name"="Run Elixir mix commands"
-LABEL "com.github.actions.description"="An action for running Elixir mix commands"
+LABEL "com.github.actions.name"="Run `mix hex.outdated and comment on PR`"
+LABEL "com.github.actions.description"="An action for running `mix hex.outdated`"
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="orange"
 
 RUN apk add --no-cache \
   bash \
-  git
+  ca-certificates \
+  coreutils \
+  curl \
+  git \
+  jq
 
 ARG MIX_HOME=/.mix
 ENV MIX_HOME=$MIX_HOME
